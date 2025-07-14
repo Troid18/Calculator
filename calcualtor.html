@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -18,35 +19,35 @@
 
         <tr>
 
-            <td onclick="btnPressed(7)">7</td>
-            <td onclick="btnPressed(8)">8</td>
-            <td onclick="btnPressed(9)">9</td>
-            <td onclick="btnOperations('x')">x</td>
+            <td class="buttons" onclick="btnPressed(7)">7</td>
+            <td class="buttons" onclick="btnPressed(8)">8</td>
+            <td class="buttons" onclick="btnPressed(9)">9</td>
+            <td class="operators" onclick="btnOperations('x')">x</td>
 
             
         </tr>
 
         <tr>
 
-            <td onclick="btnPressed(4)">4</td>
-            <td onclick="btnPressed(5)">5</td>
-            <td onclick="btnPressed(6)">6</td>
-            <td onclick="btnOperations('+')">+</td>
+            <td class="buttons" onclick="btnPressed(4)">4</td>
+            <td class="buttons" onclick="btnPressed(5)">5</td>
+            <td class="buttons" onclick="btnPressed(6)">6</td>
+            <td class="operators" onclick="btnOperations('+')">+</td>
         </tr>
 
         <tr>
-            <td onclick="btnPressed(1)">1</td>
-            <td onclick="btnPressed(2)">2</td>
-            <td onclick="btnPressed(3)">3</td>
-            <td onclick="btnOperations('-')">-</td>
+            <td class="buttons" onclick="btnPressed(1)">1</td>
+            <td class="buttons" onclick="btnPressed(2)">2</td>
+            <td class="buttons" onclick="btnPressed(3)">3</td>
+            <td class="operators" onclick="btnOperations('-')">-</td>
 
         </tr>
 
         <tr>
-            <td onclick="btnPressed(0)">0</td>
-            <td onclick="btnClear()">AC</td>
-            <td onclick="btnEquals()">=</td>
-            <td onclick="btnOperations('/')">/</td>
+            <td class="buttons" onclick="btnPressed(0)">0</td>
+            <td class="operators" onclick="btnClear()">AC</td>
+            <td class="operators" onclick="btnEquals()">=</td>
+            <td class="operators" onclick="btnOperations('/')">/</td>
         </tr>
 
 
@@ -89,6 +90,8 @@
             newValue = true;
         }
 
+
+        // Will be responsible to generate proper calculations
         function btnEquals(){
 
             var value2 =parseInt(document.getElementById("inputBox").value);
@@ -114,9 +117,10 @@
 
             }
 
+            // Outputs the final total
             document.getElementById("inputBox"). value = finalTotal;
-            value1 = 0;
-            newValue = true;
+            value1 = 0; // Initialize to zero so we can be able to continue doing operations
+            newValue = true; // For our calculator to enable us to continue our operations
         }
     </script>
     
