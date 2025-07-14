@@ -21,7 +21,7 @@
             <td onclick="btnPressed(7)">7</td>
             <td onclick="btnPressed(8)">8</td>
             <td onclick="btnPressed(9)">9</td>
-            <td>x</td>
+            <td onclick="btnOperations('x')">x</td>
 
             
         </tr>
@@ -31,22 +31,22 @@
             <td onclick="btnPressed(4)">4</td>
             <td onclick="btnPressed(5)">5</td>
             <td onclick="btnPressed(6)">6</td>
-            <td>+</td>
+            <td onclick="btnOperations('+')">+</td>
         </tr>
 
         <tr>
             <td onclick="btnPressed(1)">1</td>
             <td onclick="btnPressed(2)">2</td>
             <td onclick="btnPressed(3)">3</td>
-            <td onclick="">-</td>
+            <td onclick="btnOperations('-')">-</td>
 
         </tr>
 
         <tr>
             <td onclick="btnPressed(0)">0</td>
             <td onclick="btnClear()">AC</td>
-            <td>=</td>
-            <td>/</td>
+            <td onclick="btnEquals()">=</td>
+            <td onclick="btnOperations('/')">/</td>
         </tr>
 
 
@@ -76,6 +76,46 @@
         function btnClear(){
 
             document.getElementById("inputBox").value = 0;
+            newValue = true;
+        }
+
+        var currentOperator;
+        var value1;
+
+        function btnOperations(operator){
+
+            currentOperator = operator;
+            value1 = parseInt(document.getElementById("inputBox").value);
+            newValue = true;
+        }
+
+        function btnEquals(){
+
+            var value2 =parseInt(document.getElementById("inputBox").value);
+            var finalTotal;
+
+            switch (currentOperator){
+
+                case "+":
+                finalTotal = value1 + value2;
+                break;
+
+                case "-":
+                finalTotal = value1 - value2;
+                break;
+
+                case "x":
+                finalTotal = value1 * value2;
+                break;
+
+                case "/":
+                finalTotal = value1 / value2;
+                break;
+
+            }
+
+            document.getElementById("inputBox"). value = finalTotal;
+            value1 = 0;
             newValue = true;
         }
     </script>
