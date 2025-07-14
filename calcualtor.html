@@ -44,7 +44,7 @@
 
         <tr>
             <td onclick="btnPressed(0)">0</td>
-            <td>AC</td>
+            <td onclick="btnClear()">AC</td>
             <td>=</td>
             <td>/</td>
         </tr>
@@ -54,9 +54,11 @@
 
     <script>
 
- 
+        // Variable that will enable a value to be on a newLine
         var newValue = true;
 
+
+        // Function Responsible for handling Events e.g pressing 1 will make it appear on our textbox
         function btnPressed(num){
 
             if (newValue){
@@ -68,6 +70,13 @@
             document.getElementById("inputBox").value = currentValue + num;
             }
             
+        }
+
+        // Responsible for clearing any displayed number and sets it to zero
+        function btnClear(){
+
+            document.getElementById("inputBox").value = 0;
+            newValue = true;
         }
     </script>
     
